@@ -1,0 +1,49 @@
+﻿@model Examen.ApplicationCore.Domain.Vaccin
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Vaccin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateValidation" class="control-label"></label>
+                <input asp-for="DateValidation" class="form-control" />
+                <span asp-validation-for="DateValidation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fournisseur" class="control-label"></label>
+                <input asp-for="Fournisseur" class="form-control" />
+                <span asp-validation-for="Fournisseur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantite" class="control-label"></label>
+                <input asp-for="Quantite" class="form-control" />
+                <span asp-validation-for="Quantite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeVaccin" class="control-label"></label>
+                <select asp-for="TypeVaccin" class="form-control" asp-items="Html.GetEnumSelectList<Examen.ApplicationCore.Domain.TypeVaccin>()"> </select>                <span asp-validation-for="TypeVaccin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CentreVacinationId" class="control-label"></label>
+              @*  <input asp-for="CentreVacinationId" class="form-control" />*@
+                <select asp-for="CentreVacinationId" class="form-control" asp-items="ViewBag.CentreList"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
